@@ -42,12 +42,11 @@ int parse_command(char **command, char *args_list[],
         }
         if (strcmp(token, "|") == 0) {
             // There is a pipe in the command.
-            // Set the appropriate flag
+            // Set the appropriate flag.
+            // Increment pipe count, and decrement previously incremented
+            // index by 1 since this is the pipe character
             *is_piped = 1;
             pipe_cnt += 1;
-
-            // Decrement previously incremented index by 1 since
-            // this is the pipe character.
             index -= 1;
         }
         token = strtok(NULL, " ");
