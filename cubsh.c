@@ -122,7 +122,7 @@ void exec_piped_command(char *args_list[], char *piped_args_list[]) {
 
         if(piped_command_pid == 0) {
             // fds[1] is the write end of the pipe. The piped command
-            only needs the read end, so close fds[1] */
+            // only needs the read end, so close fds[1]
             close(fds[1]);
             dup2(fds[0], STDIN_FILENO);
             close(fds[0]);
